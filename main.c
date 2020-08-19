@@ -6,7 +6,7 @@
 /*   By: tfarenga <tfarenga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 15:11:46 by tfarenga          #+#    #+#             */
-/*   Updated: 2020/08/18 14:17:20 by tfarenga         ###   ########.fr       */
+/*   Updated: 2020/08/19 15:11:44 by tfarenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,37 @@ void test()
 	printf("My   = %d\n", ft_strcmp(str5, str5));
 	printf("True = %d\n", strcmp(str6, str6));
 	printf("My   = %d\n", ft_strcmp(str6, str6));
+
+	printf("---FT_WRITE---\n");
+	char	a = '1';
+	char	*s1 = "12345\n";
+	char	*s2 = "6\n";
+
+	printf("True:\n");
+	write(1, &a, 1);
+	write(1, "\n", 1);
+	write(1, s1, ft_strlen(s1));
+	write(-1, s2, ft_strlen(s2));
+	write(1, "\n", 1);
+	printf("My:\n");
+	ft_write(1, &a, 1);
+	ft_write(1, "\n", 1);
+	ft_write(1, s1, ft_strlen(s1));
+	ft_write(-1, s2, ft_strlen(s2));
+	ft_write(1, "\n", 1);
+
+	printf("---FT_READ---\n");
+	char	buffer1[1000];
+	char	buffer2[1000];
+	int		fd = open("text.txt", O_RDONLY);
+
+	read(fd, buffer1, 1000);
+	printf("True = %s\n", buffer1);
+	close(fd);
+	fd = open("text.txt", O_RDONLY);
+	ft_read(fd, buffer2, 1000);
+	printf("My   = %s\n", buffer2);
+	close(fd);
 }
 
 int main()
