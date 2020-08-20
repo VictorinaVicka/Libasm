@@ -6,7 +6,7 @@
 /*   By: tfarenga <tfarenga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 15:11:46 by tfarenga          #+#    #+#             */
-/*   Updated: 2020/08/19 15:11:44 by tfarenga         ###   ########.fr       */
+/*   Updated: 2020/08/19 15:45:31 by tfarenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,18 @@ void test()
 	ft_read(fd, buffer2, 1000);
 	printf("My   = %s\n", buffer2);
 	close(fd);
+
+	printf("---FT_STRDUP---\n");
+	char	*ds = "Test";
+
+	printf("True = %s\n", strdup(ds));
+	printf("My   = %s\n", ft_strdup(ds));
+	printf("True = %s\n", strdup("OK"));
+	printf("My   = %s\n", ft_strdup("OK"));
+	printf("True = %s\n", strdup(str5));
+	printf("My   = %s\n", ft_strdup(str5));
+	printf("True = %s\n", strdup(str2));
+	printf("My   = %s\n", ft_strdup(str2));
 }
 
 int main()
