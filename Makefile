@@ -6,7 +6,7 @@
 #    By: tfarenga <tfarenga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/17 10:35:12 by tfarenga          #+#    #+#              #
-#    Updated: 2020/08/17 16:39:54 by tfarenga         ###   ########.fr        #
+#    Updated: 2020/08/19 15:14:29 by tfarenga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NA = nasm
 
 NAFLAG = -f macho64
 
-SRC = ft_strlen.s
+SRC = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 
 OBJ = $(SRC:.s=.o)
 
