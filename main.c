@@ -6,7 +6,7 @@
 /*   By: tfarenga <tfarenga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 15:11:46 by tfarenga          #+#    #+#             */
-/*   Updated: 2020/08/19 15:45:31 by tfarenga         ###   ########.fr       */
+/*   Updated: 2020/08/20 13:41:38 by tfarenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,21 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 
-void test()
+void	ft_errno(void)
 {
-	char *str1 = "12";
+	if (errno != 0)
+	{
+		printf("errno: %d\n", errno);
+		perror("Errno");
+		errno = 0;
+	}
+}
+
+void	test()
+{
+	char *str1 = "6";
 	char *str2 = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890|";
 
 	printf("---FT_STRLEN---\n");
@@ -54,21 +65,21 @@ void test()
 
 	printf("---FT_WRITE---\n");
 	char	a = '1';
-	char	*s1 = "12345\n";
-	char	*s2 = "6\n";
+	char	*s2 = " 1ABc\n";
 
 	printf("True:\n");
 	write(1, &a, 1);
 	write(1, "\n", 1);
-	write(1, s1, ft_strlen(s1));
+	write(1, s2, ft_strlen(s2));
 	write(-1, s2, ft_strlen(s2));
-	write(1, "\n", 1);
+	ft_errno();
+
 	printf("My:\n");
 	ft_write(1, &a, 1);
 	ft_write(1, "\n", 1);
-	ft_write(1, s1, ft_strlen(s1));
+	ft_write(1, s2, ft_strlen(s2));
 	ft_write(-1, s2, ft_strlen(s2));
-	ft_write(1, "\n", 1);
+	ft_errno();
 
 	printf("---FT_READ---\n");
 	char	buffer1[1000];
