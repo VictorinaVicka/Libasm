@@ -6,7 +6,7 @@
 /*   By: tfarenga <tfarenga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 15:11:46 by tfarenga          #+#    #+#             */
-/*   Updated: 2020/08/20 13:41:38 by tfarenga         ###   ########.fr       */
+/*   Updated: 2020/08/20 14:04:13 by tfarenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_errno(void)
 	if (errno != 0)
 	{
 		printf("errno: %d\n", errno);
-		perror("Errno");
+		perror("Error");
 		errno = 0;
 	}
 }
@@ -88,10 +88,12 @@ void	test()
 
 	read(fd, buffer1, 1000);
 	printf("True = %s\n", buffer1);
+	ft_errno();
 	close(fd);
 	fd = open("text.txt", O_RDONLY);
 	ft_read(fd, buffer2, 1000);
 	printf("My   = %s\n", buffer2);
+	ft_errno();
 	close(fd);
 
 	printf("---FT_STRDUP---\n");
